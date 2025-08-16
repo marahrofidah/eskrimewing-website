@@ -27,7 +27,7 @@
             height: 100%;
             object-fit: cover; 
             z-index: -1; 
-            opacity: 5; /* Menambahkan transparansi untuk membuat konten terlihat lebih jelas */
+            opacity: 5; 
             filter: blur(5px); 
             transform: scale(1.1);
         }
