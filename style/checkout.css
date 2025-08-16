@@ -33,7 +33,7 @@
         }
         header h1 {
             width: 300px;
-            text-align: center; /* Judul di tengah halaman */
+            text-align: center; 
             color: rgb(252, 240, 70); 
             position: relative;
             top: 10%;
