@@ -34,7 +34,7 @@
         header h1 {
             width: 300px;
             text-align: center; /* Judul di tengah halaman */
-            color: rgb(252, 240, 70); /* Warna teks putih */
+            color: rgb(252, 240, 70); 
             position: relative;
             top: 10%;
             left: 0;
