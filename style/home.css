@@ -1,0 +1,838 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+.banner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    background-image: url(../images/bgg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner .slider{
+    position: relative;
+    top: -80px;
+    width: 180px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transform: perspective(1200px) rotateX(-18deg) ;
+    animation: autoRun 30s linear infinite;
+    z-index: 2;
+}
+
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-18deg) rotateY(0deg) ;
+    }to{
+        transform: perspective(1000px) rotateX(-18deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform:
+            rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(300px);
+}
+
+.banner .slider .item img{
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.banner .content h1{
+    font-family: "Irish Grover", system-ui;
+    font-size: 9em;
+    line-height: 1em;
+    color: #d4305a;
+    position: relative;
+    margin-left: 40px;
+    top: 180px;
+}
+.banner .content h1::after{
+    content: attr(data-content);
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 2;
+    -webkit-text-stroke: 0.25px #d4305a;
+    color: transparent;
+}
+
+.banner .content .author{
+    font-family: "Lato", sans-serif;
+    font-size: 16px; 
+    color: #68328c;
+    text-align: right;
+    margin-right: 40px;
+    max-width: 280px;
+    position: relative;
+    top: 50px;
+
+}
+
+.banner .content h2{
+    font-family: "Irish Grover", system-ui;
+    font-size: 2em;
+    color: #68328c;
+}
+
+.banner .content .model {
+    background-image: url(../images/karakterr.png);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    top: -70px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+
+}
+.banner .slider .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.banner .slider .item a img {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.banner .slider .item a img:hover {
+    transform: scale(2);
+}
+
+/* Tombol Buy Now */
+.buy-now-button {
+    position: absolute;
+    top: 180px; /* Sesuaikan posisi vertikal tombol */
+    left: 100px; /* Sesuaikan posisi horizontal tombol */
+    z-index: 1000;
+    text-align: center;
+    animation: breathe 3s infinite ease-in-out; /* Efek bernapas */
+    transition: transform 0.3s ease-in-out;
+}
+
+.buy-now-button a {
+    text-decoration: none;
+    font-family: 'Irish Grover', system-ui;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f8c505;
+    background-color: #ae1e93;
+    padding: 15px 30px;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Efek Hover */
+.buy-now-button a:hover {
+    background-color: #f8c505;
+    color: #ae1e93;
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Efek Bernapas */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.9);
+        
+    }
+    50% {
+        transform: scale(1.1);
+        
+    }
+}
+
+/* Teks author */
+.author {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    color: #68328c;
+    text-align: left;
+    margin-top: 50px;
+    padding-left: 50px;
+}
+
+.author h2 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 2em;
+    color: #68328c;
+}
+
+/* Tombol Login dengan Efek 3D */
+.login-button {
+    position: absolute;
+    top: 30%; /* Letakkan di atas tulisan "Jelajahi Rasa Sekarang!" */
+    left: 89%; /* Posisikan di tengah horizontal */
+    transform: translate(-50%, -100%); /* Sesuaikan supaya benar-benar di atas */
+    z-index: 1000; /* Pastikan tombol terlihat di atas elemen lainnya */
+    perspective: 1000px; /* Menambahkan efek perspektif 3D */
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-button a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Box belakang teks */
+.login-button .login-text {
+    font-family: "Irish Grover", system-ui;
+    color: #f8c505;
+    position: relative;
+    padding: 10px 20px; /* Memberikan ruang di dalam box */
+    background-color: #fb4d43; /* Warna latar belakang */
+    border-radius: 25px; /* Sudut melengkung */
+    transform: translateZ(0); /* Menambahkan properti 3D */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Efek Hover pada Teks dan Box */
+.login-button .login-text:hover {
+    transform: translateZ(20px); /* Teks menonjol ke depan */
+    color: #fb4d43; /* Ubah warna teks saat hover */
+    background-color: #f8c505; /* Warna latar belakang berubah saat hover */
+}
+
+/* Efek Animasi Berulang */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.login-button img {
+    width: 100px; /* Ukuran gambar */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: rotateY(0deg); /* Posisi awal */
+    animation: float 3s infinite ease-in-out; /* Animasi melayang */
+}
+/* Responsive untuk layar maksimal 1024px (Tablet) */
+@media (max-width: 1024px) {
+    .banner .content h1 {
+        font-size: 6em;
+        top: 120px;
+        margin-left: 20px;
+    }
+
+    .buy-now-button {
+        top: 140px;
+        left: 60px;
+    }
+
+    .login-button {
+        left: 85%;
+    }
+
+    .banner .content .author {
+        font-size: 14px;
+        margin-right: 20px;
+        top: 30px;
+    }
+
+    .banner .content h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Responsive untuk layar maksimal 768px (Tablet Potret dan HP besar) */
+@media (max-width: 768px) {
+    .banner .slider {
+        width: 140px;
+        height: 180px;
+    }
+
+    .banner .content h1 {
+        font-size: 4em;
+        top: 100px;
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .buy-now-button {
+        top: 120px;
+        left: 40px;
+    }
+
+    .login-button {
+        top: 25%;
+        left: 80%;
+    }
+
+    .banner .content .author {
+        font-size: 13px;
+        margin-right: 10px;
+    }
+
+    .banner .content h2 {
+        font-size: 1.2em;
+    }
+}
+
+/* Responsive untuk layar maksimal 480px (HP) */
+@media (max-width: 480px) {
+    .banner .slider {
+    position: relative;
+    top: -80px;
+    width: 180px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(-18deg) ;
+    animation: autoRun 30s linear infinite;
+    z-index: 2;
+}
+
+    .banner .content h1 {
+        font-size: 2.8em;
+        top: 90px;
+        margin-left: 0;
+    }
+
+    .buy-now-button {
+        top: 100px;
+        left: 20px;
+    }
+
+    .buy-now-button a {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+
+    .login-button {
+        top: 20%;
+        left: 75%;
+        transform: translate(-50%, -100%);
+    }
+
+    .login-button .login-text {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    .login-button img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .banner .content .author {
+        font-size: 12px;
+        text-align: center;
+        margin: 10px auto;
+        padding: 0 20px;
+    }
+
+    .banner .content h2 {
+        font-size: 1em;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* Galeri */
+.gallery {
+
+    position: relative;
+    padding: 40px 30px;
+    background: #d4305a; /* Kuning ke transparan */
+    z-index: 1;
+    margin-bottom: -1px; /* Hilangkan celah antara galeri dan video */
+}
+
+.gallery h2 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 4em;
+    color: #ffffff;
+    margin: 0;
+    padding: 50px 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform: translateX(10px); /* Geser sedikit ke kanan */
+}
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-items {
+    display: flex;
+    gap: 30px;
+    animation: slide-loop 20s linear infinite;
+    will-change: transform;
+}
+
+.gallery-item {
+    min-width: 200px;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.gallery-item p {
+    font-family: "Lato", sans-serif;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 55px;
+    color: #000000;
+}
+
+/* Efek Hover */
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi Galeri */
+@keyframes slide-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Hentikan Animasi saat Hover */
+.gallery-items:hover {
+    animation-play-state: paused;
+}
+
+/* Efek Hover */
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi Berjalan */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Hentikan Animasi saat Hover */
+.gallery-items:hover {
+    animation-play-state: paused;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  ::-webkit-scrollbar {
+    width: auto;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #333;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+  }
+
+
+/* Video Background */
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Tinggi penuh layar */
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Ketinggian gradasi */
+    background: linear-gradient(to top, #f7d532, transparent);
+    pointer-events: none;
+}
+
+/* Overlay Konten */
+.video-overlay-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+}
+
+.video-overlay-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.video-overlay-content p {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+.overlapping-gallery {
+    display: flex;
+    align-items: center; /* Vertikal tengah */
+    justify-content: space-between; /* Gambar dan teks berjauhan */
+    padding: 50px;
+    background-color: #f7d532;
+}
+
+.gallery-text {
+    flex: 1; /* Lebar teks menyesuaikan */
+    text-align: left; /* Teks rata kiri */
+    margin-right: 20px; /* Jarak ke gambar */
+}
+
+.gallery-text h2 {
+    font-family: "Irish Grover", cursive;
+    font-size: 4em;
+    color: #68328c;
+    margin-bottom: 10px;
+}
+
+.gallery-text p {
+    font-family: "Lato", sans-serif;
+    font-size: 1.2em;
+    color: #68328c;
+}
+
+.overlapping-gallery {
+    display: flex;
+    align-items: center; /* Vertikal tengah */
+    justify-content: space-between; /* Gambar dan teks berjauhan */
+    padding: 50px;
+    background-color: #f7d532;
+}
+
+.gallery-text {
+    flex: 1; /* Lebar teks menyesuaikan */
+    text-align: left; /* Teks rata kiri */
+    margin-right: 20px; /* Jarak ke gambar */
+}
+
+.gallery-text h2 {
+    font-family: "Irish Grover", cursive;
+    font-size: 4em;
+    color: #68328c;
+    margin-bottom: 10px;
+}
+
+.gallery-text p {
+    font-family: "Lato", sans-serif;
+    font-size: 1.2em;
+    color: #68328c;
+}
+
+.overlapping-items {
+    display: flex;
+    justify-content: flex-end; /* Susunan gambar di sisi kanan */
+    gap: -90px; /* Tumpang tindih gambar */
+}
+
+.overlapping-item {
+    position: relative;
+    width: 200px; /* Ukuran tetap */
+    height: 400px;
+    overflow: hidden; /* Sembunyikan bagian gambar yang keluar */
+}
+
+.overlapping-item img.default,
+.overlapping-item img.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Gambar menyesuaikan kontainer */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    transition: transform 1s ease, opacity 0.3s ease;
+}
+
+
+
+/* Efek Hover: Gambar muncul dari bawah ke atas */
+.overlapping-item img.hover-img {
+    transform: translateY(100%); /* Awalnya berada di luar area gambar */
+    opacity: 0; /* Tidak terlihat */
+    z-index: 2;
+}
+
+.overlapping-item:hover img.default {
+    opacity: 0; /* Gambar default disembunyikan */
+}
+
+.overlapping-item:hover img.hover-img {
+    transform: translateY(0); /* Bergerak ke posisi normal */
+    opacity: 1; /* Menjadi terlihat */
+}
+
+/* Animasi bernafas */
+@keyframes breathe {
+    0% {
+        transform: scale(1); /* Ukuran normal */
+    }
+    50% {
+        transform: scale(1.05); /* Memperbesar sedikit */
+    }
+    100% {
+        transform: scale(1); /* Kembali ke ukuran semula */
+    }
+}
+
+
+/* Container Testimonial */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #68328c;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 2.5em;
+    color: #f7d532;
+    margin-bottom: 30px;
+}
+
+/* Kontainer Testimonial Items */
+.testimonial-items {
+    display: flex;
+    flex-wrap: nowrap; /* Semua item dalam satu baris */
+    gap: 20px;
+    overflow: hidden; /* Sembunyikan elemen di luar area */
+    position: relative;
+}
+
+/* Container Testimonial */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #68328c;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 2.5em;
+    color: #f7d532;
+    margin-bottom: 30px;
+}
+
+/* Kontainer Testimonial Items */
+.testimonial-items {
+    display: flex;
+    flex-wrap: nowrap; /* Semua item dalam satu baris */
+    gap: 20px;
+    overflow: hidden; /* Sembunyikan elemen di luar area */
+    position: relative;
+}
+
+/* Testimonial Item */
+.testimonial-item {
+    flex: 0 0 auto; /* Item tidak mengecil */
+    width: 300px;
+    background: #dadada;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    animation: slide-right 20s linear infinite; /* Arah animasi ke kanan */
+}
+
+.testimonial-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-item p {
+    font-family: "Lato", sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.testimonial-item span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: #243D6B;
+}
+
+/* Animasi Bergerak ke Kanan */
+@keyframes slide-right {
+    from {
+        transform: translateX(-100%); /* Mulai dari luar layar kiri */
+    }
+    to {
+        transform: translateX(100%); /* Berakhir di luar layar kanan */
+    }
+}
+
+/* Hentikan animasi saat hover */
+.testimonial-item:hover {
+    animation-play-state: paused;
+}
+
+
+.contact-section {
+    text-align: center;
+    margin-top: 0;
+    background-color: #f2eee9;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-content {
+    padding: 50px;
+    background-color: #f2eee9;
+}
+
+.contact-content h1 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 80px;
+    margin-bottom: 30px;
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+.contact-content h1 span {
+    color: #40c4ff;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.contact-info div {
+    text-align: center;
+}
+
+.contact-info h3 {
+    font-family: "Irish Grover", system-ui;
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #ff6f61;
+}
+
+
+.contact-info a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #40c4ff;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #ff4081;
+}
+
+footer {
+    background-color: #68328c;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 0;
+    font-size: 1em;
+    animation: fadeInUp 1s ease-out;
+}
+
+footer p {
+    margin: 0;
+}
