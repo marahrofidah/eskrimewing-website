@@ -141,7 +141,7 @@ body {
   font-size: 0.9em;
 }
 
-/* MEDIA QUERIES UNTUK LAYAR KECIL */
+
 @media (max-width: 480px) {
   .ring {
     width: 90vw;
