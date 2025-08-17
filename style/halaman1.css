@@ -132,7 +132,7 @@ footer p {
     margin: 0;
 }
 
-/* Animations */
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
